@@ -3,8 +3,9 @@
 
 [![OpsStation](https://img.shields.io/badge/Made%20by-OpsStation-blue?style=flat-square&logo=terraform)](https://www.opsstation.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Terraform](https://img.shields.io/badge/Terraform-1.6%2B-purple.svg?logo=terraform)](#)
-[![CI](https://github.com/OpsStation/terraform-multicloud-labels/actions/workflows/ci.yml/badge.svg)](https://github.com/OpsStation/terraform-multicloud-labels/actions/workflows/ci.yml)
+[![Terraform](https://img.shields.io/badge/Terraform-1.13%2B-purple.svg?logo=terraform)](#)
+[![CI](https://github.com/OpsStation/terraform-gcp-service-account/actions/workflows/ci.yml/badge.svg)](https://github.com/OpsStation/terraform-gcp-service-account/actions/workflows/ci.yml)
+[![Latest Release](https://img.shields.io/github/release/opsstation/terraform-gcp-service-account.svg)](https://github.com/opsstation/terraform-gcp-service-account/releases/latest)
 
 > 🌩️ **A production-grade, reusable GCP service-account module by [OpsStation](https://www.opsstation.com)**
 > Designed for reliability, performance, and security — following GCP networking best practices.
