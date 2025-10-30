@@ -68,29 +68,26 @@ usage: |-
         }
       ]
   }  
-  ```
-  
-  ### multiple_service_accounts example
-    ```hcl
-        module "service-account" {
-        source          = "opsstation/service-account/gcp"
-        version         = "1.0.1"
-        service_account = [
-          {
-            name          = "svc-account-first"
-            display_name  = "First Service Account"
-            description   = "This is the first service account"
-            roles         = ["roles/editor", "roles/viewer", "roles/owner"] # Multiple roles
-            generate_keys = true
-          },
-          {
-            name          = "svc-account-second"
-            display_name  = "Second Service Account"
-            description   = "This is the second service account"
-            roles         = ["roles/editor"] # Single role
-            generate_keys = true
-          }
-        ]
-    }
 
-    ```
+  ### multiple_service_accounts example
+  ```hcl
+      module "service-account" {
+      source          = "opsstation/service-account/gcp"
+      version         = "1.0.1"
+      service_account = [
+        {
+          name          = "svc-account-first"
+          display_name  = "First Service Account"
+          description   = "This is the first service account"
+          roles         = ["roles/editor", "roles/viewer", "roles/owner"] # Multiple roles
+          generate_keys = true
+        },
+        {
+          name          = "svc-account-second"
+          display_name  = "Second Service Account"
+          description   = "This is the second service account"
+          roles         = ["roles/editor"] # Single role
+          generate_keys = true
+        }
+      ]
+  }
