@@ -1,0 +1,80 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+
+# Name of this project
+name: Terraform GCP Service-Account
+
+# License of this project
+license: "APACHE"
+
+# Canonical GitHub repo
+github_repo: opsstation/terraform-gcp-service-account
+
+# Badges to display
+badges:
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/opsstation/terraform-gcp-service-account.svg"
+    url: "https://github.com/opsstation/terraform-gcp-service-account/releases/latest"
+  - name: "tfsec"
+    image: "https://github.com/opsstation/terraform-gcp-service-account/actions/workflows/tfsec.yml/badge.svg"
+    url: "https://github.com/opsstation/terraform-gcp-service-account/actions/workflows/tfsec.yml"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-APACHE-blue.svg"
+    url: "LICENSE.md"
+  - name: "Changelog"
+    image: "https://img.shields.io/badge/Changelog-blue"
+    url: "CHANGELOG.md"
+
+prerequesties:
+  - name: Terraform
+    url: https://learn.hashicorp.com/terraform/getting-started/install.html
+    version: ">= 1.13.3"
+
+providers:
+  - name: google
+    url: https://registry.terraform.io/providers/hashicorp/google
+    version: ">= 5.31.0"
+
+
+module_dependencies:
+  - name: Labels Module
+    url: https://github.com/opsstation/terraform-multicloud-labels
+    description: Provides resource tagging.
+
+
+#  description of this project
+description: |-
+  Terraform module service-account to create new modules using this as baseline
+
+# How to use this project
+usage: |-
+  Here are some examples of how you can use this module in your inventory structure:
+
+  ### service-account example
+  ```hcl
+      module "service-account" {
+      source                                    = "opsstation/service-account/gcp"
+      version                                   = "1.0.1"
+      name                                      = "service-account"
+      environment                               = "OpsStation"
+      network                                   = module.vpc.vpc_id
+      ingress_rules = [
+        {
+          name          = "allow-tcp-http-ingress"
+          description   = "Allow TCP, HTTP ingress traffic"
+          disabled      = false
+          direction     = "INGRESS"
+          priority      = 1000
+          source_ranges = ["0.0.0.0/0"]
+          allow = [
+            {
+              protocol = "tcp"
+              ports    = ["22", "80"]
+            }
+          ]
+        }
+      ]
+  }
+  ```
